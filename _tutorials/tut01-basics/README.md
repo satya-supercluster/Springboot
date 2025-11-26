@@ -1,5 +1,85 @@
 # Spring Boot Basics: Complete Beginner's Guide
 
+## Table of Contents
+
+### [1. Introduction to Spring Boot](#1-introduction-to-spring-boot)
+- What is Spring Boot?
+- Why use Spring Boot?
+- Real-world analogy
+
+### [2. Project Setup](#2-project-setup)
+- Creating a Spring Boot Project
+- Method 1: Using Spring Initializr
+- Method 2: Using IDE
+
+### [3. Maven vs Gradle](#3-maven-vs-gradle)
+- Maven Configuration (pom.xml)
+- Key Maven Commands
+- Gradle Configuration (build.gradle)
+- Key Gradle Commands
+- Comparison Table
+
+### [4. Folder Structure](#4-folder-structure)
+- Complete Project Structure Overview
+- **src/main/java/** - Application Code
+  - [DemoApplication.java](#demoapplicationjava---the-main-entry-point) - Main Entry Point
+  - [controller/](#controller---handles-http-requests) - HTTP Request Handlers
+  - [model/](#model---data-classes-entitiesdtos) - Data Classes
+  - [service/](#service---business-logic) - Business Logic
+  - [repository/](#repository---database-access) - Database Access
+  - [config/](#config---configuration-classes) - Configuration Classes
+- **src/main/resources/** - Non-Java Files
+  - [application.properties](#applicationproperties---application-configuration) - Configuration
+  - [static/](#static---static-files) - Static Files (CSS, JS, Images)
+  - [templates/](#templates---html-templates) - HTML Templates
+- **src/test/java/** - Test Code
+- **target/ or build/** - Compiled Output
+
+### [5. Complete Example: Simple REST API](#complete-example-simple-rest-api)
+- Model Implementation
+- Service Implementation
+- Controller Implementation
+- Main Application
+
+### [6. Running Your Application](#running-your-application)
+- Using Maven
+- Using Gradle
+- From IDE
+
+### [7. Testing Your API](#testing-your-api)
+- Browser Testing
+- cURL Commands
+- Postman
+
+### [8. Summary](#summary)
+- Key Folders Overview
+- Request Flow Diagram
+
+---
+
+## Quick Links
+
+- [Spring Initializr](https://start.spring.io)
+- [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/)
+- [Maven Documentation](https://maven.apache.org/guides/)
+- [Gradle Documentation](https://docs.gradle.org/)
+
+---
+
+## Getting Started Checklist
+
+- [ ] Install Java 17 or later
+- [ ] Choose and install an IDE (IntelliJ IDEA, Eclipse, or VS Code)
+- [ ] Create your first project using Spring Initializr
+- [ ] Add Spring Web dependency
+- [ ] Run the default application
+- [ ] Create your first REST endpoint
+- [ ] Test with browser or Postman
+
+---
+
+*Click on any section above to navigate to the detailed explanation in the main tutorial.*
+
 ## 1. Introduction to Spring Boot
 
 **What is Spring Boot?**

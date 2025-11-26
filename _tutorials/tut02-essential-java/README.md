@@ -1,5 +1,293 @@
 # Java Essentials for Spring Boot Development - Complete Guide
 
+## Table of Contents
+
+### [Chapter 1: Object-Oriented Programming (OOP) Fundamentals](#chapter-1-object-oriented-programming-oop-fundamentals)
+- [1.1 Classes and Objects](#11-classes-and-objects)
+  - Basic Class Definition
+  - Real-world Spring Boot Scenario
+- [1.2 Encapsulation](#12-encapsulation)
+  - Data Hiding with Private Variables
+  - Spring Boot Example
+- [1.3 Inheritance](#13-inheritance)
+  - Parent-Child Relationships
+  - Method Overriding
+  - Spring Boot Real-world Example
+- [1.4 Polymorphism](#14-polymorphism)
+  - Method Overloading (Compile-time)
+  - Method Overriding (Runtime)
+  - Spring Boot Example with Multiple Implementations
+- [1.5 Abstraction](#15-abstraction)
+  - Abstract Classes
+  - Spring Boot Base Service Example
+
+---
+
+### [Chapter 2: Interfaces](#chapter-2-interfaces)
+- [2.1 Basic Interface](#21-basic-interface)
+- [2.2 Multiple Interface Implementation](#22-multiple-interface-implementation)
+- [2.3 Interface with Constants](#23-interface-with-constants)
+- [2.4 Functional Interfaces](#24-functional-interfaces)
+- [2.5 Spring Boot Interface Examples](#25-spring-boot-interface-examples)
+  - Repository Interface
+  - Service Interface Implementation
+
+---
+
+### [Chapter 3: Exception Handling](#chapter-3-exception-handling)
+- [3.1 Basic Exception Handling](#31-basic-exception-handling)
+- [3.2 Multiple Catch Blocks](#32-multiple-catch-blocks)
+- [3.3 Custom Exceptions](#33-custom-exceptions)
+- [3.4 Try-with-Resources](#34-try-with-resources)
+- [3.5 Spring Boot Exception Handling](#35-spring-boot-exception-handling)
+  - @ControllerAdvice
+  - Global Exception Handler
+
+---
+
+### [Chapter 4: Streams API](#chapter-4-streams-api)
+- [4.1 Creating Streams](#41-creating-streams)
+- [4.2 Stream Operations](#42-stream-operations)
+  - Intermediate Operations (filter, map, sorted)
+  - Terminal Operations (collect, forEach, reduce)
+- [4.3 Terminal Operations](#43-terminal-operations)
+- [4.4 Complex Stream Examples](#44-complex-stream-examples)
+  - Group By Category
+  - Aggregations and Partitioning
+- [4.5 Spring Boot Stream Examples](#45-spring-boot-stream-examples)
+
+---
+
+### [Chapter 5: Collections Framework](#chapter-5-collections-framework)
+- [5.1 List Interface](#51-list-interface)
+  - ArrayList vs LinkedList
+- [5.2 Set Interface](#52-set-interface)
+  - HashSet, LinkedHashSet, TreeSet
+  - Set Operations (Union, Intersection, Difference)
+- [5.3 Map Interface](#53-map-interface)
+  - HashMap, LinkedHashMap, TreeMap
+  - Iteration and Compute Methods
+- [5.4 Queue and Deque](#54-queue-and-deque)
+- [5.5 Spring Boot Collections Usage](#55-spring-boot-collections-usage)
+
+---
+
+### [Chapter 6: Generics](#chapter-6-generics)
+- [6.1 Generic Classes](#61-generic-classes)
+- [6.2 Generic Methods](#62-generic-methods)
+- [6.3 Bounded Type Parameters](#63-bounded-type-parameters)
+  - Upper Bounded Wildcards
+  - Lower Bounded Wildcards
+- [6.4 Generic Interfaces](#64-generic-interfaces)
+- [6.5 Spring Boot Generic Examples](#65-spring-boot-generic-examples)
+  - Generic Base Entity
+  - Generic API Response Wrapper
+
+---
+
+### [Chapter 7: Functional Programming](#chapter-7-functional-programming)
+- [7.1 Lambda Expressions](#71-lambda-expressions)
+- [7.2 Built-in Functional Interfaces](#72-built-in-functional-interfaces)
+  - Predicate, Function, Consumer, Supplier
+  - BiFunction, UnaryOperator, BinaryOperator
+- [7.3 Method References](#73-method-references)
+  - Static Method Reference
+  - Instance Method Reference
+  - Constructor Reference
+- [7.4 Optional Class](#74-optional-class)
+  - Creating Optional
+  - Optional Operations (map, filter, orElse)
+- [7.5 Spring Boot Functional Programming Examples](#75-spring-boot-functional-programming-examples)
+
+---
+
+### [Chapter 8: Annotations](#chapter-8-annotations)
+- [8.1 Built-in Java Annotations](#81-built-in-java-annotations)
+- [8.2 Custom Annotations](#82-custom-annotations)
+- [8.3 Processing Custom Annotations](#83-processing-custom-annotations)
+- [8.4 Spring Boot Annotations](#84-spring-boot-annotations)
+  - **Core Annotations**: @Component, @Service, @Repository, @Controller, @RestController
+  - **Configuration Annotations**: @Configuration, @Bean, @Value, @ConfigurationProperties
+  - **JPA Annotations**: @Entity, @Table, @Id, @GeneratedValue, @OneToMany, @ManyToOne
+  - **Validation Annotations**: @NotNull, @NotBlank, @Email, @Size, @Min, @Max
+  - **Transaction Annotations**: @Transactional
+  - **Scheduling Annotations**: @Scheduled, @EnableScheduling
+  - **Async Annotations**: @Async, @EnableAsync
+  - **Caching Annotations**: @Cacheable, @CachePut, @CacheEvict
+  - **Security Annotations**: @PreAuthorize, @PostAuthorize
+  - **Conditional Annotations**: @ConditionalOnProperty, @ConditionalOnMissingBean
+
+---
+
+### [Chapter 9: Multi-threading and Concurrency](#chapter-9-multi-threading-and-concurrency)
+- [9.1 Creating Threads](#91-creating-threads)
+  - Extending Thread Class
+  - Implementing Runnable Interface
+- [9.2 Thread Synchronization](#92-thread-synchronization)
+  - Synchronized Methods
+  - Synchronized Blocks
+- [9.3 ExecutorService](#93-executorservice)
+  - Fixed Thread Pool
+  - Scheduled Executor
+- [9.4 CompletableFuture](#94-completablefuture)
+  - Async Computations
+  - Chaining Operations
+  - Exception Handling
+- [9.5 Spring Boot Async Examples](#95-spring-boot-async-examples)
+
+---
+
+### [Chapter 10: File I/O and NIO](#chapter-10-file-io-and-nio)
+- [10.1 Basic File Operations](#101-basic-file-operations)
+  - Reading Files
+  - Writing Files
+  - Copy, Delete, File Info
+- [10.2 Directory Operations](#102-directory-operations)
+  - Create, List, Delete Directories
+  - Recursive Operations
+- [10.3 Working with CSV Files](#103-working-with-csv-files)
+- [10.4 Working with JSON Files](#104-working-with-json-files)
+  - Using Jackson Library
+- [10.5 Spring Boot File Upload/Download](#105-spring-boot-file-uploaddownload)
+
+---
+
+### [Chapter 11: Design Patterns for Spring Boot](#chapter-11-design-patterns-for-spring-boot)
+- [11.1 Singleton Pattern](#111-singleton-pattern)
+- [11.2 Factory Pattern](#112-factory-pattern)
+- [11.3 Builder Pattern](#113-builder-pattern)
+  - Traditional Builder
+  - Lombok @Builder
+- [11.4 Strategy Pattern](#114-strategy-pattern)
+- [11.5 Observer Pattern](#115-observer-pattern)
+  - Spring Events
+  - Event Listeners
+- [11.6 Repository Pattern](#116-repository-pattern)
+
+---
+
+### [Chapter 12: Dependency Injection and IoC](#chapter-12-dependency-injection-and-ioc)
+- [12.1 Types of Dependency Injection](#121-types-of-dependency-injection)
+  - Constructor Injection (Recommended)
+  - Setter Injection
+  - Field Injection
+- [12.2 Qualifiers and Primary](#122-qualifiers-and-primary)
+- [12.3 Bean Scopes](#123-bean-scopes)
+  - Singleton, Prototype, Request, Session, Application
+- [12.4 Lifecycle Callbacks](#124-lifecycle-callbacks)
+  - @PostConstruct, @PreDestroy
+  - InitializingBean, DisposableBean
+- [12.5 Conditional Beans](#125-conditional-beans)
+
+---
+
+### [Chapter 13: Logging and Monitoring](#chapter-13-logging-and-monitoring)
+- [13.1 SLF4J with Logback](#131-slf4j-with-logback)
+  - Logger Creation
+  - Log Levels (TRACE, DEBUG, INFO, WARN, ERROR)
+- [13.2 Logback Configuration](#132-logback-configuration)
+  - Console and File Appenders
+  - Rolling Policy
+- [13.3 Custom Log Aspects](#133-custom-log-aspects)
+  - @LogExecutionTime Annotation
+  - AOP Logging
+- [13.4 MDC for Request Tracking](#134-mdc-for-request-tracking)
+- [13.5 Application Health Monitoring](#135-application-health-monitoring)
+  - Custom Health Indicators
+  - Actuator Endpoints
+
+---
+
+### [Final Real-World Spring Boot Example](#final-real-world-spring-boot-example)
+- Complete CRUD Application
+- Entity, DTO, Repository, Service, Controller
+- All Concepts Combined
+
+---
+
+## Quick Reference Guide
+
+### **OOP Principles**
+- **Encapsulation**: Data hiding with private fields
+- **Inheritance**: Code reuse through parent-child relationships
+- **Polymorphism**: One interface, multiple implementations
+- **Abstraction**: Hide implementation details
+
+### **Key Functional Interfaces**
+- `Predicate<T>` - Boolean test
+- `Function<T, R>` - Transformation
+- `Consumer<T>` - Accept input, no return
+- `Supplier<T>` - Supply value, no input
+- `BiFunction<T, U, R>` - Two inputs, one output
+
+### **Common Stream Operations**
+- **Intermediate**: filter(), map(), sorted(), distinct(), limit(), skip()
+- **Terminal**: collect(), forEach(), reduce(), count(), anyMatch(), findFirst()
+
+### **Spring Boot Core Annotations**
+- `@SpringBootApplication` - Main application class
+- `@RestController` - REST API controller
+- `@Service` - Business logic layer
+- `@Repository` - Data access layer
+- `@Autowired` - Dependency injection
+- `@Transactional` - Transaction management
+
+### **Exception Handling**
+- `@ControllerAdvice` - Global exception handler
+- `@ExceptionHandler` - Handle specific exceptions
+- Custom exceptions extending RuntimeException
+
+### **Validation Annotations**
+- `@NotNull`, `@NotBlank`, `@NotEmpty`
+- `@Size`, `@Min`, `@Max`
+- `@Email`, `@Pattern`
+- `@Valid` - Trigger validation
+
+---
+
+## Best Practices Checklist
+
+- [ ] Use Constructor Injection over Field Injection
+- [ ] Prefer Interfaces over Concrete Classes
+- [ ] Use Optional to avoid NullPointerException
+- [ ] Apply proper Exception Handling with @ControllerAdvice
+- [ ] Use Lombok to reduce boilerplate code
+- [ ] Implement proper logging with SLF4J
+- [ ] Use Streams API for collection operations
+- [ ] Apply appropriate Bean Scopes
+- [ ] Use @Transactional for database operations
+- [ ] Implement pagination for large datasets
+- [ ] Use DTOs for API requests/responses
+- [ ] Apply validation on API inputs
+- [ ] Use Async processing for long-running tasks
+- [ ] Implement proper security with Spring Security
+
+---
+
+## Learning Path
+
+### **Beginner Level** (Weeks 1-2)
+1. Master OOP concepts
+2. Understand Collections Framework
+3. Learn basic Exception Handling
+4. Practice with simple Spring Boot CRUD apps
+
+### **Intermediate Level** (Weeks 3-4)
+1. Deep dive into Streams API
+2. Learn Functional Programming concepts
+3. Understand Spring Boot Annotations
+4. Practice Dependency Injection patterns
+
+### **Advanced Level** (Weeks 5-6)
+1. Master Design Patterns
+2. Implement Multi-threading
+3. Learn Logging and Monitoring
+4. Build production-ready applications
+
+---
+
+*Happy Coding! Master these concepts and you'll be building robust Spring Boot applications in no time!* 🚀💻✨
+
 ## Chapter 1: Object-Oriented Programming (OOP) Fundamentals
 
 ### 1.1 Classes and Objects
